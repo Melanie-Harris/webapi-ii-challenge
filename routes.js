@@ -36,7 +36,7 @@ router.get('/posts/:id/comments', (req, res) => {
             res.status(200).json(comments)
         }else{
             res.status(404).json({ message: "The post with the specified ID does not exist." })
-        }
+        } 
        .catch(error => {res.status(500).json({ error: "The post could not be removed" })}) 
     })
 })
