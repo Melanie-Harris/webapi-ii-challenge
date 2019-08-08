@@ -1,19 +1,21 @@
 const express = require('express');//1) import express
-const router= require('./routes.js')
-
+const router= require('./routes.js');
+const comments=require('./commentRoutes.js');
 
 const server = express();//2) create the server
 
 // server.use('/', (req, res) => res.send('Hey beautiful, api is up and running'));// 5) read data. When anyone does get request to the / server we will run this function
 server.use(express.json());// .use adds configs to express server (adding middleware to server)
 server.use('/api', router);
+server.use('/api', comments);
 
 
 
 
 
-const port= 8000;
-server.listen(port, ()=> console.log('\nHey beautiful, api is running on port 8000\n'))// 3) port listening on 8000
+
+const port= 8006;
+server.listen(port, ()=> console.log(`\nHey beautiful, api is running on port ${port}\n`))// 3) port listening on 8000
 
 
 
